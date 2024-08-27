@@ -50,16 +50,14 @@ class Home extends StatelessWidget {
             return Center(
               child: CircularProgressIndicator(),
             );
-          }
-          else if (snapshot.data!.isEmpty) {
+          } else if (snapshot.data!.isEmpty) {
             return Center(
               child: Text(
                 "No song found",
                 style: ourStyle(size: 23),
               ),
             );
-          }
-          else {
+          } else {
             return Padding(
               padding: EdgeInsets.all(8.0),
               child: ListView.builder(
@@ -75,14 +73,14 @@ class Home extends StatelessWidget {
                     ),
                     tileColor: bgColor,
                     title: Text(
-                      "Music name",
+                      snapshot.data![index].displayNameWOExt,
                       style: ourStyle(
                         family: bold,
                         size: 18,
                       ),
                     ),
                     subtitle: Text(
-                      "Artist name",
+                      "${snapshot.data![index].artist}",
                       style: ourStyle(
                         family: regular,
                         size: 12,
